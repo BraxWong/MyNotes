@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>447396423921-r95d7846t4ka4n4ssefb01g7c17smj4o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.447396423921-r95d7846t4ka4n4ssefb01g7c17smj4o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDLd9kGPNU8rbIcZJTqNsjYmuOsUd_rt8c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>447396423921</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>braxW.mynotes</string>
+	<key>PROJECT_ID</key>
+	<string>braxmynotes</string>
+	<key>STORAGE_BUCKET</key>
+	<string>braxmynotes.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:447396423921:ios:ffd00b513cf9392b636150</string>
+</dict>
+</plist>
