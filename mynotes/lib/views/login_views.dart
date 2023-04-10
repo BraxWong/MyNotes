@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotes/firebase_options.dart';
 import 'loggedIn_views.dart';
@@ -11,7 +14,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  //late promises that the variable will be stored later
+    //late promises that the variable will be stored later
   late final TextEditingController _email;
   late final TextEditingController _password;
 
@@ -29,11 +32,11 @@ class _LoginViewState extends State<LoginView> {
     _password.dispose();
     super.dispose();
   }
-  
-  @override
+
+    @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text('User Registeration'),),
+      appBar: AppBar(title: const Text('User Login'),),
       body: FutureBuilder(
         future: Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
         builder:  (context, snapshot) {
@@ -59,20 +62,33 @@ class _LoginViewState extends State<LoginView> {
                   onPressed:() async {
                     final email = _email.text;
                     final password = _password.text;
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      email: email,
-                      password: password
-                    );
-                    runApp(MaterialApp(
-                      title: 'Flutter Demo',
-                      theme: ThemeData(
-                        primarySwatch: Colors.blue,
-                      ),
-                       home: const LoggedInPage(),
-                      )
-                    );
+                    try {
+                      await FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: email,
+                        password: password
+                      );
+                      runApp(MaterialApp(
+                        title: 'Flutter Demo',
+                        theme: ThemeData(
+                          primarySwatch: Colors.blue,
+                        ),
+                        home: const LoggedInPage(),
+                        )
+                      );
+                    }
+                    on FirebaseAuthException catch(e){
+                      debugPrint("Error Code: 1");
+                      if (kDebugMode) {
+                        if(e.code == 'user-not-found'){
+                          print("User is not found");
+                        }
+                        else if(e.code == 'wrong-password') {
+                          print("Wrong password");
+                        }
+                      }
+                    }
                   }, 
-                  child: const Text('Register'),
+                  child: const Text('Log In'),
                 )
               ]
             ); 
